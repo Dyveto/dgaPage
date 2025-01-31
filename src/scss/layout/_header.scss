@@ -1,0 +1,43 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+header {
+    background-color: v.$marron;
+    .contenido-header {
+        width: 95%;
+        justify-content: center;
+        padding: 2rem 1rem;
+        align-items: center;
+        display: flex;
+        gap: 30rem;
+    }
+    .header-logo {
+        margin: 0 5rem 0 0;
+        height: auto;
+        width: 20rem;
+    }
+
+    .navegacion {
+        display: flex;
+        gap: 6rem;
+        a {
+            color: v.$verde;
+            font-weight: 600;
+        }
+    }
+}
+.banner-principal {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 0 0;
+}
+
+// FOOTER
+.footer {
+    background-color: v.$marron;
+    height: 7rem;
+    display: flex;
+}
+
+

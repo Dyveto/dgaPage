@@ -24,8 +24,6 @@ export function dev() {
     watch('src/js/**/*.js', js)
 }
 
-export default series( js, css, dev )
-
 // Definir la tarea "build"
 export const build = series(js, css);
 

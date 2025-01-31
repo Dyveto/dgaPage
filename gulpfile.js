@@ -25,3 +25,9 @@ export function dev() {
 }
 
 export default series( js, css, dev )
+
+// Definir la tarea "build"
+export const build = series(js, css);
+
+// Tarea por defecto
+export default series(js, css, dev);

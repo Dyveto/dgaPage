@@ -1,0 +1,13 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.footer {
+    font-size: 2rem;
+    font-weight: 500;
+    background-color: v.$marron;
+    height: 7rem;
+    display: flex;
+    p {
+        margin: auto auto;
+    }
+}

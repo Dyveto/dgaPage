@@ -19,10 +19,16 @@ header {
 
     .navegacion {
         display: flex;
-        gap: 6rem;
+        gap: 2rem;
         a {
             color: v.$verde;
             font-weight: 600;
+        }
+        .navegacion_enlace{
+            padding: 2rem 2rem;
+            &:hover{
+                background-color: v.$marronOscuro;
+            }
         }
     }
 }
@@ -31,16 +37,6 @@ header {
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
     padding: 0 0;
-}
-
-// FOOTER
-.footer {
-    background-color: v.$marron;
-    height: 7rem;
-    display: flex;
-    p {
-        margin: auto auto;
-    }
 }
 
 

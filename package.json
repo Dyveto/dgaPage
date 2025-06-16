@@ -2,7 +2,7 @@
   "name": "dgapage",
   "version": "1.0.0",
   "description": "Pagina para practicar mis tecnologias para un arquitecto",
-  "main": "index.html",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "gulp dev"

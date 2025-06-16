@@ -7,6 +7,9 @@
     background-color: v.$marron;
     height: 7rem;
     display: flex;
+    position: absolute;
+    right: 0;
+    left: 0;
     p {
         margin: auto auto;
     }

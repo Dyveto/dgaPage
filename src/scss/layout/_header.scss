@@ -3,40 +3,91 @@
 
 header {
     background-color: v.$marron;
-    .contenido-header {
+    .header-contenido {
         width: 95%;
-        justify-content: center;
+        margin: auto auto;
+        justify-content: space-between;
         padding: 2rem 1rem;
         align-items: center;
         display: flex;
-        gap: 30rem;
     }
     .header-logo {
         margin: 0 5rem 0 0;
         height: auto;
-        width: 20rem;
+        width: 15rem;
+        min-width: 15rem;
+        position: relative;
     }
-
     .navegacion {
         display: flex;
         gap: 2rem;
+        align-items: center;
         a {
             color: v.$verde;
             font-weight: 600;
         }
-        .navegacion_enlace{
+        .navegacion-enlace{
             padding: 2rem 2rem;
+            border-radius: 5%;  
             &:hover{
                 background-color: v.$marronOscuro;
             }
         }
     }
+    .header-menu, 
+    .navegacion-menu-cerrar {
+        display: none;
+        width: 5rem;
+    }
+    
+    @media (max-width: v.$desktop){
+        .header-menu, 
+        .navegacion-menu-cerrar{
+            display: block;
+            border: 0;
+            color: v.$verde;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .navegacion {
+            transform: translateX(100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+
+            z-index: 10;
+            flex-direction: column;
+            align-items: end;
+            gap: 1rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: v.$marron;
+            padding: 2rem;
+            box-shadow: 0 0 0 100vmax rgba(0,0,0,0.5);
+            .navegacion-menu-cerrar {
+                width: 4rem;
+            }
+            .navegacion-enlace {
+                width: 100%;
+            }
+        }
+        .navegacion.visible {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
 }
 .banner-principal {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    padding: 0 0;
+    display: flex;
+    position: relative;
+    height: 64rem;
+    min-width: 100%;
+    overflow: hidden;
+    img {
+        max-width: none;
+        width: auto;
+    }
 }
-
-

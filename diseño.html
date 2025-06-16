@@ -11,21 +11,28 @@
 </head>
 <body>
     <header class="header">
-        <div class="contenido-header">
+        <div class="header-contenido">
             <a href="index.html">
                 <img class="header-logo" src="src/img/dga_imagen.png" alt="LOGO DGA">
             </a>
-
-            <nav class="navegacion">
-                <a class="navegacion_enlace" href="diseño.html">Diseño</a>
-                <a class="navegacion_enlace" href="construccion.html">Construcción</a>
-                <a class="navegacion_enlace" href="proyectos.html">Proyectos</a>
-                <a class="navegacion_enlace" href="equipo.html">Equipo</a>
-                <a class="navegacion_enlace" href="clientesAliados.html">Clientes y aliados</a>
+            
+            <svg id="abrir" class="header-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <nav class="navegacion" id="nav">
+                <svg id="cerrar" class="navegacion-menu-cerrar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+                <a class="navegacion-enlace" href="index.html">Inicio</a>
+                <a class="navegacion-enlace" href="diseño.html">Diseño</a>
+                <a class="navegacion-enlace" href="construccion.html">Construcción</a>
+                <a class="navegacion-enlace" href="proyectos.html">Proyectos</a>
+                <a class="navegacion-enlace" href="equipo.html">Equipo</a>
+                <a class="navegacion-enlace" href="clientesAliados.html">Clientes y aliados</a>
             </nav>
         </div>
     </header>
-
+    
     <div class="contenido-diseño">
         <h1>NUESTRO ENFOQUE EN DISEÑO</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a tellus in risus aliquam faucibus. Aliquam leo lectus, fringilla quis nibh at, lacinia suscipit est. Phasellus id bibendum nisi. Fusce sed enim sem. Fusce libero tellus, egestas commodo aliquam vitae, fermentum porta mauris. Donec sed nulla lacinia, rhoncus ex quis, ullamcorper mauris. Curabitur rhoncus velit vel dui euismod tincidunt.</p>
@@ -45,4 +52,7 @@
     <footer class="footer">
         <p>Arquitectura DGA - Todos los derechos reservados 2025.</p>
     </footer>
+
+    <script src="build/js/app.js"></script>
+
 </html>

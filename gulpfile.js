@@ -32,7 +32,7 @@ export function dev() {
 }
 
 // Definir la tarea "build"
-export const build = series(js, css);
+export const build = series(html, js, css);
 
 // Tarea por defecto
-export default series(js, css, dev);
+export default series(html, js, css, dev);

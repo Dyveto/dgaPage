@@ -1,31 +1,70 @@
-import {src, dest, watch, series} from 'gulp'
-import * as dartSass from 'sass'
-import gulpSass from 'gulp-sass'
+// import {src, dest, watch, series} from 'gulp'
+// import * as dartSass from 'sass'
+// import gulpSass from 'gulp-sass'
 
-const sass = gulpSass(dartSass)
+// const sass = gulpSass(dartSass)
 
-export function js( done ){
-    src('src/js/app.js')
-        .pipe( dest('build/js'))
+// export function js( done ){
+//     src('src/js/app.js')
+//         .pipe( dest('build/js'))
 
-    done()
-}
+//     done()
+// }
 
-export function css( done ) {
-    src('src/scss/app.scss', {sourcemaps: true})
-        .pipe( sass().on('error', sass.logError) )
-        .pipe( dest('build/css', {sourcemaps: true}))
+// export function css( done ) {
+//     src('src/scss/app.scss', {sourcemaps: true})
+//         .pipe( sass().on('error', sass.logError) )
+//         .pipe( dest('build/css', {sourcemaps: true}))
 
-    done()
-}
+//     done()
+// }
  
-export function dev() {
-    watch('src/scss/**/*.scss', css)
-    watch('src/js/**/*.js', js)
+// export function dev() {
+//     watch('src/scss/**/*.scss', css)
+//     watch('src/js/**/*.js', js)
+// }
+
+// // Definir la tarea "build"
+// export const build = series(js, css);
+
+// // Tarea por defecto
+// export default series(js, css, dev);
+
+import { src, dest, watch, series } from 'gulp';
+import * as dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+
+const sass = gulpSass(dartSass);
+
+// Mover archivos HTML a dist
+export function html(done) {
+    src('*.html')
+        .pipe(dest('dist'));
+    done();
 }
 
-// Definir la tarea "build"
-export const build = series(js, css);
+// Compilar JS
+export function js(done) {
+    src('src/js/app.js')
+        .pipe(dest('dist/js'));
+    done();
+}
 
-// Tarea por defecto
-export default series(js, css, dev);
+// Compilar SCSS
+export function css(done) {
+    src('src/scss/app.scss', { sourcemaps: true })
+        .pipe(sass().on('error', sass.logError))
+        .pipe(dest('dist/css', { sourcemaps: '.' }));
+    done();
+}
+
+// Dev
+export function dev() {
+    watch('src/scss/**/*.scss', css);
+    watch('src/js/**/*.js', js);
+    watch('./*.html', html);
+}
+
+// Build
+export const build = series(html, js, css);
+export default series(html, js, css, dev);

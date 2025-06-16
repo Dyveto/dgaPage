@@ -4,13 +4,6 @@ import gulpSass from 'gulp-sass'
 
 const sass = gulpSass(dartSass)
 
-export function html(done) {
-    src('*.html')
-        .pipe(dest('build'));
-    done();
-}
-
-
 export function js( done ){
     src('src/js/app.js')
         .pipe( dest('build/js'))
@@ -32,7 +25,7 @@ export function dev() {
 }
 
 // Definir la tarea "build"
-export const build = series(html, js, css);
+export const build = series(js, css);
 
 // Tarea por defecto
-export default series(html, js, css, dev);
+export default series(js, css, dev);

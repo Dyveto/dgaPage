@@ -1,0 +1,96 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.galeria {
+    @include m.contenedor;
+    
+    &-imagenes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(32rem, auto)); // 👈 ahora fijo
+        gap: 2rem 12rem;
+        justify-content: center;   // centra el grid
+        justify-items: center;     // centra cada tarjeta
+
+        .globo-proyecto {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            width: 42rem;  // fijo
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            background: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 3.5rem 3rem 3rem 3rem;
+            position: relative;
+        
+            &:hover {
+                transform: translateY(-10px) scale(1.07);
+                box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+                z-index: 2;
+            }
+
+            img {
+                width: 34rem;
+                height: 34rem;
+                border-radius: 50%;
+                border: 4px solid #e0e0e0;
+                object-fit: cover;
+                background: var(v.$blanco);
+                box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+                transition: border-color 0.2s;
+            }
+        }
+    }
+}
+
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(v.$negro, 0.5);
+    display: grid;
+    place-items: center;
+    animation: fadeIn ease-in .5s;
+
+    &.fade-out {
+        animation: fadeOut ease-in .5s;
+    }
+    img {
+        max-width: 90vw;   // que nunca pase del ancho de la pantalla
+        max-height: 90vh;  // que nunca pase de la altura visible
+        object-fit: contain; // ajusta sin deformar
+    }
+}
+
+
+.boton-cerrar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: none;
+    background-color: v.$blanco;
+    color: v.$negro;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

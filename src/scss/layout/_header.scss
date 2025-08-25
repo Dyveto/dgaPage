@@ -33,6 +33,9 @@ header {
                 background-color: v.$marronOscuro;
             }
         }
+        .navegacion__enlace--activo {
+            background-color: v.$marronOscuro;
+        }
     }
     .header-menu, 
     .navegacion-menu-cerrar {

@@ -1,0 +1,91 @@
+@use 'base/variables' as v;
+
+.clientes-aliados {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 5rem) 1rem clamp(4rem, 8vw, 8rem) 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    min-height: 60vh;
+    justify-content: center;
+
+    &__grupo {
+        text-align: center;
+
+        h2 {
+            font-family: v.$fuente_principal;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            color: v.$verde;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+        }
+    }
+
+    &__logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(2.5rem, 5vw, 5rem);
+        margin-bottom: 1rem;
+
+        img {
+            max-width: 260px;
+            max-height: 160px;
+            width: 20vw;
+            height: 12vw;
+            min-width: 140px;
+            min-height: 80px;
+            object-fit: contain;
+            background: transparent;
+            border-radius: 1.5rem;
+            padding: 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+
+            &:hover {
+                transform: scale(1.09);
+                box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            }
+        }
+    }
+}
+
+// Responsive
+@media (max-width: 900px) {
+    .clientes-aliados__logos {
+        gap: 1.5rem;
+        img {
+            max-width: 160px;
+            max-height: 90px;
+            width: 32vw;
+            height: 18vw;
+            min-width: 90px;
+            min-height: 50px;
+        }
+    }
+    .clientes-aliados__grupo h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .clientes-aliados {
+        padding: 1.5rem 0.5rem 3rem 0.5rem;
+        gap: 2.5rem;
+    }
+    .clientes-aliados__logos {
+        gap: 0.7rem;
+        img {
+            max-width: 90px;
+            max-height: 50px;
+            width: 44vw;
+            height: 22vw;
+            min-width: 50px;
+            min-height: 30px;
+        }
+    }
+    .clientes-aliados__grupo h2 {
+        font-size: 1.3rem;
+    }
+}
